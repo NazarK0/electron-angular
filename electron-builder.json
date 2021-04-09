@@ -1,0 +1,32 @@
+{
+  "productName": "AE-TEst",
+  "appId": "com.nv.ae-test",
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+      "dist/**/*",
+      "electron/dist/**/*"
+  ],
+  "win": {
+    "icon": "dist/renderer/assets/icons/favicon.256x256.ico",
+    "certificateFile": "./certificate.pfx",
+    "certificatePassword": "12345",
+    "target": [
+      "portable"
+    ]
+  },
+  "mac": {
+    "icon": "dist/renderer/assets/icons",
+    "target": [
+      "dmg"
+    ]
+  },
+  "linux": {
+    "icon": "dist/renderer/assets/icons",
+    "target": [
+      "AppImage",
+      "deb"
+    ]
+  }
+}
