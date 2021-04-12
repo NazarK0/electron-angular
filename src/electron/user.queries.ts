@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-import UserInterface from 'user.interface';
-import UserInputInterface from 'userInput.interface';
+import UserInterface from './user.interface';
+import UserInputInterface from './userInput.interface';
 
 const prisma = new PrismaClient();
 

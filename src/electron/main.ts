@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
 import * as path from 'path'
 import * as fs from 'fs'
+import userController from './user.controller';
 
 
 let win: BrowserWindow | null;
@@ -22,9 +23,10 @@ function createWindow() {
         enableRemoteModule : false // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
       }, })
 
-    win.loadFile(path.join(__dirname, `/../../dist/ae-test1/index.html`))
+    win.loadFile(path.join(__dirname, `/../../dist/renderer/index.html`))
     
     win.webContents.openDevTools()
+    userController(win);
 
     win.on('closed', () => {
     win = null

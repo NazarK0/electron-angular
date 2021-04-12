@@ -5,8 +5,7 @@
     "output": "release/"
   },
   "files": [
-      "dist/**/*",
-      "electron/dist/**/*"
+      "dist/**/*"
   ],
   "win": {
     "icon": "dist/renderer/assets/icons/favicon.256x256.ico",
@@ -25,8 +24,7 @@
   "linux": {
     "icon": "dist/renderer/assets/icons",
     "target": [
-      "AppImage",
-      "deb"
+      "AppImage"
     ]
   }
 }

@@ -1,18 +1,25 @@
 {
   "name": "ae-test1",
+  "description": "test electron app with angular and prisma",
   "version": "0.0.0",
-  "main": "electron/dist/main.js",
+  "main": "dist/electron/main.js",
   "scripts": {
+    "test": "ntl -e ng test",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "electron:dev": "ng build --base-href ./ && tsc --p electron && electron .",
-    "electron:build": "ng build --base-href ./ && tsc --p electron && electron-builder build"
+    "electron:dev": "ng build --base-href ./ && tsc --p src/electron && electron .",
+    "electron:build": "ng build --base-href ./ && tsc --p src/electron && electron-builder build"
   },
   "private": true,
+  "engines": {
+    "node": "14.16.0"
+  },
+  "browserslist": [
+    "chrome 89"
+  ],
+  "author": {
+    "name": "Nazar Vanivskyi",
+    "email": "reports.vaniv91@gmail.com"
+  },
   "dependencies": {
     "@angular/animations": "~11.2.8",
     "@angular/cdk": "^11.2.8",
