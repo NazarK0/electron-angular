@@ -1,0 +1,18 @@
+generator client {
+  provider      = "prisma-client-js"
+  output   = "../src/electron/prisma-client"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../test.db"
+}
+
+// models
+model User {
+  id          Int       @id @default(autoincrement())
+  login       String
+  password    String
+}
+

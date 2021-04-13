@@ -6,8 +6,8 @@
   "scripts": {
     "test": "ntl -e ng test",
     "ng": "ng",
-    "electron:dev": "ng build --base-href ./ && tsc --p src/electron && electron .",
-    "electron:build": "ng build --base-href ./ && tsc --p src/electron && electron-builder build"
+    "electron:dev": "ng build --base-href ./ && tsc --p src/electron && gulp && electron .",
+    "electron:build": "ng build --base-href ./ && tsc --p src/electron && gulp && electron-builder build"
   },
   "private": true,
   "engines": {
@@ -47,8 +47,10 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^14.14.37",
     "codelyzer": "^6.0.0",
+    "del": "^6.0.0",
     "electron": "^12.0.2",
     "electron-builder": "^22.10.5",
+    "gulp": "^4.0.2",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.1.0",
