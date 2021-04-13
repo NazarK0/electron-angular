@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { IpcRenderer } from 'electron'
 import { Observable, of } from 'rxjs';
+import UserInterface from 'src/electron/entities/user/user.interface';
+import UserInputInterface from 'src/electron/entities/user/userInput.interface';
 import IpcBodyInterface from '../ipcBody.interface';
-import UserInterface from '../user.interface';
-import UserInputInterface from '../userInput.interface';
+
 
 @Injectable()
 export class UserService {

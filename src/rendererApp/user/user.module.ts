@@ -10,6 +10,10 @@ import UserPage from "./components/@userPage/userPage.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import userRoutes from "./user.routes";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import CreateUserEffect from "./components/createUser/store/effects/createUser.effect";
+import createUserReducer from "./components/createUser/store/createUser.reducer";
 
 @NgModule({
     imports: [
@@ -19,6 +23,10 @@ import userRoutes from "./user.routes";
         MatButtonModule,
         RouterModule.forChild(userRoutes),
         ReactiveFormsModule,
+        EffectsModule.forFeature([
+            CreateUserEffect,
+        ]),
+        StoreModule.forFeature('createUser', createUserReducer),
     ],
     declarations: [
         CreateUser,
