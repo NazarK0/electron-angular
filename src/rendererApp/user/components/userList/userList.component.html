@@ -1,0 +1,14 @@
+<mat-progress-spinner
+    *ngIf="isLoading$ | async"
+    class="example-margin"
+    color="accent"
+    mode="indeterminate"
+    >
+</mat-progress-spinner>
+<p *ngIf="error$ | async">ERROR: {{error$ | async}}</p>
+<mat-list>
+    <mat-list-item *ngFor="let user of (users$ | async); index as i">
+        <span>{{i + 1}}.</span>
+        <span>{{user.login}}</span>
+    </mat-list-item>
+</mat-list>

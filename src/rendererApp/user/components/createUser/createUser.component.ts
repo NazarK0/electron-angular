@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { select, Store } from "@ngrx/store";
 import AppState from "src/rendererApp/app.state";
 import UserInputInterface from "../../types/userInput.interface";
+import { getUserListAction } from "../userList/store/actions/getUserList.action";
 import { createUserAction } from "./store/actions/createUser.action";
 
 @Component({
@@ -41,7 +42,8 @@ export default class CreateUser {
       onSubmit(): void {
         // console.log(this.form.value);
         const input: UserInputInterface = this.form.value;
-        this.store.dispatch(createUserAction({ userInput: input }))
+        this.store.dispatch(createUserAction({ userInput: input }));
+        this.store.dispatch(getUserListAction());
         this.form.reset();
       }
     
