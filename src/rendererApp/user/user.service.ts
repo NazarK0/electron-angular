@@ -7,7 +7,7 @@ import IpcBodyInterface from '../ipcBody.interface';
 
 
 @Injectable()
-export class UserService {
+export default class UserService {
 
   private ipc!: IpcRenderer
 
@@ -19,7 +19,7 @@ export class UserService {
         throw error
       }
     } else {
-      console.warn('Could not load electron ipc')
+      console.error('Could not load electron ipc')
     }
   }
 

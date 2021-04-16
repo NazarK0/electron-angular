@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { select, Store } from "@ngrx/store";
 import AppState from "src/rendererApp/app.state";
+import UserInputInterface from "../../types/userInput.interface";
 import { createUserAction } from "./store/actions/createUser.action";
 
 @Component({
@@ -39,7 +40,9 @@ export default class CreateUser {
         
       onSubmit(): void {
         // console.log(this.form.value);
-        this.store.dispatch(createUserAction(this.form.value))
+        const input: UserInputInterface = this.form.value;
+        this.store.dispatch(createUserAction({ userInput: input }))
+        this.form.reset();
       }
     
 }

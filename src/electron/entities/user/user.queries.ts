@@ -5,17 +5,19 @@ import UserInputInterface from './userInput.interface';
 const prisma = new PrismaClient();
 
 export async function userCreate(userInput: UserInputInterface): Promise<UserInterface> {
-  try {
-    const user = await prisma.user.create({
-      data: userInput
-    });
-
-    return user;
-  } catch (error) {
-    throw error;
-  } finally {
-    await prisma.$disconnect();
-  }
+  if (userInput) {
+    try {
+      const user = await prisma.user.create({
+        data: userInput
+      });
+  
+      return user;
+    } catch (error) {
+      throw error;
+    } finally {
+      await prisma.$disconnect();
+    }
+  } else throw new Error("No input data in UserCreate query")
 }
 
 export async function getUserById(id: number): Promise<UserInterface> {

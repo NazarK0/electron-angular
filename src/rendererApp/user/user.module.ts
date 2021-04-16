@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import CreateUser from "./components/createUser/createUser.component";
 import UserList from "./components/userList/userList.component";
-import { UserService } from "./user.service";
+import UserService from "./user.service";
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';

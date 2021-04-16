@@ -2,6 +2,7 @@
 import { BrowserWindow, ipcMain } from "electron";
 import IpcBodyInterface from "types/ipcBody.interface";
 import { getUserAll, getUserById, userCreate } from "./user.queries";
+import UserInputInterface from "./userInput.interface";
 
 export default function userController(window: BrowserWindow): void {
   ipcMain.on('createUser', async (event, args) => {
@@ -9,7 +10,7 @@ export default function userController(window: BrowserWindow): void {
     let response: IpcBodyInterface;
 
     try {
-      const user = await userCreate(data);
+      const user = await userCreate(data as UserInputInterface);
 
       response = {
         data: user,
