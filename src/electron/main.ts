@@ -1,7 +1,8 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
 import * as path from 'path'
-import * as fs from 'fs'
 import userController from './entities/user/user.controller';
+import { testConnection, syncModels, disconnect } from './dbConnect'
+import { environment } from '../environments/environment';
 
 
 let win: BrowserWindow | null;
@@ -21,19 +22,21 @@ function createWindow() {
         allowRunningInsecureContent: true,
         contextIsolation: false,  // false if you want to run 2e2 test with Spectron
         enableRemoteModule : false // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
-      }, })
+      }, });
 
-    win.loadFile(path.join(__dirname, `/../../dist/renderer/index.html`))
-    
-    win.webContents.openDevTools()
+    testConnection();
+
+    if (!environment.production) {
+      syncModels();
+      win.webContents.openDevTools()
+    }
+      
+    win.loadFile(path.join(__dirname, `/../../dist/renderer/index.html`));
+
     userController(win);
 
     win.on('closed', () => {
-    win = null
+      win = null;
+      disconnect();
     })
-  }
-
-  ipcMain.on('getFiles', (event, arg) => {
-    const files = fs.readdirSync(__dirname)
-    win?.webContents.send('getFilesResponse', files)
-  })
+}

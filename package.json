@@ -6,8 +6,8 @@
   "scripts": {
     "test": "ntl -e ng test",
     "ng": "ng",
-    "electron:dev": "ng build --base-href ./ && tsc --p src/electron && gulp && electron .",
-    "electron:build": "ng build --base-href ./ && tsc --p src/electron && gulp && electron-builder build"
+    "electron:dev": "ng build --base-href ./ && tsc --p src/electron && electron .",
+    "electron:build": "ng build --base-href ./ --prod && tsc --p src/electron && electron-builder build"
   },
   "private": true,
   "engines": {
@@ -34,8 +34,9 @@
     "@ngrx/effects": "^11.1.0",
     "@ngrx/router-store": "^11.1.0",
     "@ngrx/store": "^11.1.0",
-    "@prisma/client": "^2.20.1",
     "rxjs": "~6.6.0",
+    "sequelize": "^6.6.2",
+    "sqlite3": "^5.0.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
@@ -46,6 +47,7 @@
     "@types/electron": "^1.6.10",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^14.14.37",
+    "@types/validator": "^13.1.3",
     "codelyzer": "^6.0.0",
     "del": "^6.0.0",
     "electron": "^12.0.2",
@@ -58,7 +60,6 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "prisma": "^2.20.1",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
